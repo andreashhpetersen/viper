@@ -1,0 +1,29 @@
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'
+
+[project]
+name = "pyviper"
+version = "0.0.1"
+authors = [
+  { name="Andreas Holck Høeg-Petersen", email="ahhp@cs.aau.dk" },
+]
+description = "An implementation of the VIPER algorithm from the paper 'Verifiable Reinforcement Learning via Policy Extraction' by O. Bastani, et. al. 2019"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'numpy',
+    'gymnasium',
+    'stable-baselines3',
+    'tqdm',
+    'torch',
+]
+
+[project.urls]
+"Homepage" = "https://github.com/andreashhpetersen/viper"
+"Bug Tracker" = "https://github.com/andreashhpetersen/viper/issues"
