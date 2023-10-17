@@ -65,6 +65,7 @@ def sample_idxs(weights, max_samples=80000):
     """
     return np.random.choice(
         len(weights),
+        replace=False,
         size=(min(weights.shape[0], max_samples),),
         p=weights / weights.sum()
     )
