@@ -1,7 +1,7 @@
 from stable_baselines3 import PPO
 from stable_baselines3.common.env_util import make_vec_env
 
-from viper.wrappers import TreeWrapper, SB3Wrapper
+from viper.wrappers import TreeWrapper, SB3Wrapper, ShieldOracleWrapper
 
 
 def load_oracle(path, model_type):
@@ -15,6 +15,14 @@ def load_oracle(path, model_type):
             oracle = SB3Wrapper(QTree(path))
         except ImportError:
             raise ValueError("'qtree' models require the 'stratetrees' " /
+                             "package to be installed")
+    elif model_type == 'shield':
+        try:
+            from stratetrees.models import DecisionTree
+            action_map = [(0,1), (0,), (1,), ()]
+            oracle = ShieldOracleWrapper(DecisionTree.load_from_file(path), action_map)
+        except ImportError:
+            raise ValueError("'shield' models require the 'stratetrees' " /
                              "package to be installed")
 
     return oracle

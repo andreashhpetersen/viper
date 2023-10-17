@@ -43,7 +43,7 @@ def parse_args():
     )
     parser_viper.add_argument(
         '--oracle-type', '-m',
-        type=str, default='ppo', choices=['ppo','dqn','qtree'],
+        type=str, default='ppo', choices=['ppo','dqn','qtree','shield'],
         help='The model type of the oracle'
     )
     parser_viper.add_argument(
